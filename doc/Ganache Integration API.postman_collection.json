@@ -1,0 +1,196 @@
+{
+	"info": {
+		"_postman_id": "ac520a72-b030-43f7-b9ee-7efbeb4885db",
+		"name": "Ganache Integration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13863905"
+	},
+	"item": [
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL_URL}}/api/http/login",
+					"host": [
+						"{{LOCAL_URL}}"
+					],
+					"path": [
+						"api",
+						"http",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL_URL}}/api/http/get_available_menu",
+					"host": [
+						"{{LOCAL_URL}}"
+					],
+					"path": [
+						"api",
+						"http",
+						"get_available_menu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Categories",
+			"protocolProfileBehavior": {
+				"disableCookies": false,
+				"removeRefererHeaderOnRedirect": false
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE3MDI3MDA1OTAsImlkIjoyLCJ1c2VybmFtZSI6ImFkbWluIiwicGFzc3dvcmQiOiJhZG1pbiJ9.FNXcYqpglepKOGL4UIIWUPKJ-99N2t0M7jT_h_FLKaE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL_URL}}/api/http/get_available_categories",
+					"host": [
+						"{{LOCAL_URL}}"
+					],
+					"path": [
+						"api",
+						"http",
+						"get_available_categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employee_id\": false,\n    \"session_id\": 2887,\n    \"pricelist_id\": 1,\n    \"partner_id\": 5483,\n    \"company_id\": 1,\n    \"amount_total\": 2500,\n    \"amount_tax\": 150,\n    \"amount_return\": 0,\n    \"amount_paid\": 2500,\n    \"lines\": [\n        {\n            \"product_id\": 21390,\n            \"qty\": 10,\n            \"discount\": 10,\n            \"price_unit\": 250,\n            \"price_subtotal\": 2500,\n            \"price_subtotal_incl\": 2500\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{TEST_URL}}/api/order/save",
+					"host": [
+						"{{TEST_URL}}"
+					],
+					"path": [
+						"api",
+						"order",
+						"save"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{LOCAL_URL}}/api/http/get_available_branches",
+					"host": [
+						"{{LOCAL_URL}}"
+					],
+					"path": [
+						"api",
+						"http",
+						"get_available_branches"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TEST_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "LOCAL_URL",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
